@@ -1,0 +1,102 @@
+[v-cloak] {
+  display: none;
+}
+
+input[type='text'] {
+  font-family: Tahoma;
+}
+
+.content-header {
+  h1 {
+    text-align: right;
+  }
+}
+
+.city-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  border: 1px solid $border;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-top: 30px;
+  background-color: $city;
+
+  &:nth-child(even) {
+    background-color: $city-even;
+  }
+
+  .city-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    width: 100%;
+
+    .values {
+      font-family: Tahoma;
+    }
+
+    .current-weather {
+      align-self: center;
+      text-align: right;
+      flex-grow: 1;
+      padding: 0 10px;
+
+      .weather-description {
+        font-style: italic;
+        font-size: 12px;
+      }
+    }
+
+    .city-info {
+      flex-grow: 3;
+      font-size: 18px;
+      font-style: italic;
+
+      .city-name {
+        font-weight: 600;
+      }
+    }
+
+    .title {
+      font-weight: 600;
+
+      &:nth-child(3n) {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  font-family: Tahoma;
+  a {
+    cursor: pointer;
+  }
+
+  li.disabled {
+    a, a:hover, a:focus {
+      cursor: default !important;
+    }
+  }
+
+}
+
+.invalid {
+  border-color: $invalid-color;
+  background: $invalid-bg-color;
+  box-shadow: none;
+  &:focus {
+    border-color: $invalid-color;
+    box-shadow: none;
+  }
+}

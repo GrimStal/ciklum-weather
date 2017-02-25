@@ -1,0 +1,16 @@
+.navbar-default{
+  background-color: $blue;
+
+  .logo {
+    background-color: $yellow;
+
+    .logo-lg {
+      padding: 10px;
+      background: url('/images/cloud-icon.png');
+    }
+  }
+}
+
+.content-header {
+  margin-bottom: 30px;
+}
