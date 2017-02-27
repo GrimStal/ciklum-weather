@@ -28,24 +28,26 @@
                 <div class="col-xs-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
                     <form class="form-inline city-form" v-cloak>
                         <div class="form-group col-xs-12">
-                            <div class="buttons-container col-xs-6 col-sm-5 col-md-4 col-lg-4">
-                                <button class="btn btn-info control-button col-xs-5" v-if="cities.length > 1"
-                                        v-on:click.prevent="toggleSort">@{{ !sorted ? 'A - Z' : 'By Add' }}
-                                </button>
-                                <button :class="{'btn btn-success control-button': true, 'disabled': progress}"
-                                        v-on:click.prevent="addCity">
-                                    Search
-                                </button>
+                            <div class="col-xs-6 col-sm-5 col-md-4 col-lg-4">
+                                <div class="buttons-container btn-group">
+                                    <button class="btn btn-info col-xs-5" v-if="cities.length > 1"
+                                            v-on:click.prevent="toggleSort">@{{ !sorted ? 'A - Z' : 'By Add' }}
+                                    </button>
+                                    <button :class="{'btn btn-success': true, 'disabled': progress}"
+                                            v-on:click.prevent="addCity">
+                                        Search
+                                    </button>
+                                </div>
                             </div>
                             <div class="input-group col-xs-6 col-md-6">
                                 <div class="input-group-addon" :class="{'invalid': errors.has('search')}">&#9925;</div>
                                 <input type="text" name="search"
                                        :class="{'form-control' : true, 'col-xs-6': true, 'invalid': errors.has('search')}"
-                                       id="search-field"
                                        v-model="cityName"
                                        placeholder="Enter city name"
                                        v-validate.search="'required|min:2|max:32'"
                                        maxlength="32"
+                                       v-on:keydown.enter.prevent="addCity"
                                 >
                             </div>
                         </div>

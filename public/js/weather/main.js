@@ -71,7 +71,7 @@
 /***/ 11:
 /***/ (function(module, exports) {
 
-new Vue({
+window.a = new Vue({
   el: '#weather-section',
   data: {
     cities: [],
