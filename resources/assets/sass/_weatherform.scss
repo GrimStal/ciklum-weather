@@ -3,7 +3,7 @@
 }
 
 input[type='text'] {
-  font-family: Tahoma;
+  font-family: Arial, sans-serif;
 }
 
 .content-header {
@@ -13,11 +13,10 @@ input[type='text'] {
 }
 
 .city-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: baseline;
+  @include flex-row();
+  @include flex-wrap(wrap);
+  @include justify-content(center);
+  @include align-items(baseline);
   border: 1px solid $border;
   padding: 5px 10px;
   border-radius: 15px;
@@ -28,16 +27,48 @@ input[type='text'] {
     background-color: $city-even;
   }
 
+  .city-closer {
+    @include flex-row();
+    @include justify-content(flex-end);
+    width: 100%;
+
+    .close-city {
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 800;
+      color: $lighterGrey;
+      cursor: pointer;
+      border: transparent;
+      background-color: transparent;
+      outline: none;
+
+      &:active {
+        color: $lightGrey;
+      }
+    }
+  }
+
+  .city-info {
+    flex-grow: 3;
+    font-size: 18px;
+    font-style: italic;
+    padding: 5px 0;
+
+    .city-name {
+      font-weight: 600;
+    }
+  }
+
   .city-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: baseline;
+    @include flex-row();
+    @include justify-content(flex-start);
+    @include align-items(baseline);
     width: 100%;
 
     .values {
-      font-family: Tahoma;
+      font-family: Arial, sans-serif;
     }
 
     .current-weather {
@@ -52,16 +83,6 @@ input[type='text'] {
       }
     }
 
-    .city-info {
-      flex-grow: 3;
-      font-size: 18px;
-      font-style: italic;
-
-      .city-name {
-        font-weight: 600;
-      }
-    }
-
     .title {
       font-weight: 600;
 
@@ -69,16 +90,24 @@ input[type='text'] {
         margin-left: 20px;
       }
     }
+
+    .current-temp {
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .small {
+      font-size: 12px;
+    }
   }
 }
 
 .pagination {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  @include flex-row();
+  @include flex-wrap(wrap);
+  @include justify-content(center);
 
-  font-family: Tahoma;
+  font-family: Arial, sans-serif;
   a {
     cursor: pointer;
   }
@@ -88,7 +117,15 @@ input[type='text'] {
       cursor: default !important;
     }
   }
+}
 
+.buttons-container {
+  @include flex-row();
+  @include justify-content(flex-end);
+
+  .control-button {
+    margin: 0 5px;
+  }
 }
 
 .invalid {
@@ -98,5 +135,15 @@ input[type='text'] {
   &:focus {
     border-color: $invalid-color;
     box-shadow: none;
+  }
+}
+
+.error-span {
+  color: $invalid-color;
+}
+
+.btn {
+  &:focus {
+    outline: none!important;
   }
 }

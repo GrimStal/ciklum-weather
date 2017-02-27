@@ -14,5 +14,9 @@ require('./bootstrap');
  */
 
 import VeeValidate from 'vee-validate';
+import VueResource from 'vue-resource';
 
+Vue.use(VueResource);
 Vue.use(VeeValidate);
+
+Vue.http.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
