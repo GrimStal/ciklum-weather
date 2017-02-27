@@ -1,4 +1,4 @@
-new Vue({
+window.a = new Vue({
   el: '#weather-section',
   data: {
     cities: [],
@@ -45,9 +45,9 @@ new Vue({
     toggleSort: function () {
       return this.sorted = !this.sorted;
     },
-    removeDuplicates: function(givenCity) {
+    removeDuplicates: function (givenCity) {
       let self = this;
-      this.cities.forEach(function(city, index) {
+      this.cities.forEach(function (city, index) {
         let exists = false;
         if (city.name === givenCity.name) {
           if ('sys' in city && 'country' in city.sys &&
