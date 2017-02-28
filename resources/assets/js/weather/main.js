@@ -1,4 +1,4 @@
-window.a = new Vue({
+new Vue({
   el: '#weather-section',
   data: {
     cities: [],
