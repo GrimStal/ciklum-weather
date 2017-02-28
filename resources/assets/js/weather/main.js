@@ -65,29 +65,27 @@ new Vue({
       });
     },
     addCity: function () {
-      let self = this;
-
       this.$validator.validateAll()
           .then(result => {
             if (result) {
-              self.progress = true;
-              self.$http.post('/add-city', {city: this.cityName})
+              this.progress = true;
+              this.$http.post('/add-city', {city: this.cityName})
                   .then(
                       response => {
-                        self.progress = false;
+                        this.progress = false;
                         if ('data' in response && response.data && 'name' in response.data) {
-                          self.removeDuplicates(response.data);
-                          self.cities.unshift(response.data);
+                          this.removeDuplicates(response.data);
+                          this.cities.unshift(response.data);
                         }
                       },
                       error => {
-                        self.progress = false;
+                        this.progress = false;
                         if ('data' in error && Array.isArray(error.data)) {
                           error.data.forEach(function (err) {
-                            self.errors.add(err.field, err.msg);
+                            this.errors.add(err.field, err.msg);
                           });
                         } else {
-                          self.errors.add('search', 'Unknown error');
+                          this.errors.add('search', 'Unknown error');
                           console.log(error);
                         }
                       });
