@@ -46,8 +46,7 @@ new Vue({
       return this.sorted = !this.sorted;
     },
     removeDuplicates: function (givenCity) {
-      let self = this;
-      this.cities.forEach(function (city, index) {
+      this.cities.forEach((city, index) => {
         let exists = false;
         if (city.name === givenCity.name) {
           if ('sys' in city && 'country' in city.sys &&
@@ -60,7 +59,7 @@ new Vue({
           }
         }
         if (exists) {
-          self.cities.splice(index, 1);
+          this.cities.splice(index, 1);
         }
       });
     },
